@@ -1,0 +1,17 @@
+<script>
+    function loadData() {
+        google.script.run.withSuccessHandler(function (data) {
+            var table = $('#mentorTable').DataTable();
+            table.clear();
+            data.forEach(function (row) {
+                table.row.add(row);
+            });
+            table.draw();
+        }).countStudentsPerMentor();
+    }
+
+    $(document).ready(function () {
+        $('#mentorTable').DataTable();
+        loadData();
+    });
+</script>

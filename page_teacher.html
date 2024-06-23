@@ -11,8 +11,9 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/themify-icons/0.1.2/css/themify-icons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
 
-  <?!= include("cssStyle"); ?>
+  <?!= include("css_style"); ?>
 </head>
 
 <body>
@@ -65,6 +66,23 @@
               ข้อมูลการนิเทศก์ฝึกงาน
             </h3>
           </div>
+          <div class="grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">ครูที่ออกนิเทศก์</h4>
+                <table id="mentorTable" class="display">
+                  <thead>
+                    <tr>
+                      <th>ครูนิเทศ</th>
+                      <th>จำนวนครั้งที่ออกนิเทศ</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
           <!-- content-wrapper ends -->
         </div>
         <!-- ---------------------------------main content --------------------------------- -->
@@ -77,12 +95,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.min.js"></script>
-
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
 
   <?!= include("js_misc"); ?>
   <?!= include("js_canvas"); ?>
   <?!= include("js_setting"); ?>
-  <?!= include("js_dashboard"); ?>
+  <?!= include("js_teacher"); ?>
 
 </body>
 
