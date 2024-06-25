@@ -41,14 +41,14 @@
 
           <li class="nav-item">
             <?var url = getScriptUrl();?>
-            <a class="nav-link" href='<?=url?>?page=pageTeacher'>
+            <a class="nav-link" href='<?=url?>?page=page_teacher'>
               <span class="menu-title">คุณครู</span>
               <i class="mdi mdi-account-multiple menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
             <?var url = getScriptUrl();?>
-            <a class="nav-link" href='<?=url?>?page=pageCompany'>
+            <a class="nav-link" href='<?=url?>?page=page_company'>
               <span class="menu-title">สถานประกอบการ</span>
               <i class="mdi mdi-factory menu-icon"></i>
             </a>
@@ -67,7 +67,6 @@
           <div class="grid-margin">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">ครูที่ออกนิเทศก์</h4>
                 <div id="loadingSpinner" class="spinner-border" role="status" style="display:none;">
                   <span class="sr-only">Loading...</span>
                 </div>
@@ -84,7 +83,7 @@
                 </table>
 
                 <div id="studentModal" class="modal" tabindex="-1" role="dialog">
-                  <div class="modal-dialog" role="document">
+                  <div class="modal-dialog modal-fullscreen" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title">รายชื่อนักเรียน</h5>
@@ -96,14 +95,14 @@
                         <div id="modalLoadingSpinner" class="spinner-border" role="status" style="display:none;">
                           <span class="sr-only">กำลังโหลด...</span>
                         </div>
-                        <table id="studentTable" class="display">
+                        <table id="studentDetailsTable" class="display">
                           <thead>
                             <tr>
-                              <th>Timestamp</th>
-                              <th>ช่วงเวลาที่เข้านิเทศก์</th>
+                              <th>ชื่อนักเรียน นักศึกษา</th>
                               <th>รหัสประจำตัวนักเรียน นักศึกษา</th>
                               <th>สาขาวิชา</th>
                               <th>ระดับการศึกษา</th>
+                              <th>จำนวนครั้งที่ออกนิเทศ</th>
                               <!-- Add other columns as needed -->
                             </tr>
                           </thead>
