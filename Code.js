@@ -1,6 +1,6 @@
 function getScriptUrl() {
- var url = ScriptApp.getService().getUrl();
- return url;
+  var url = ScriptApp.getService().getUrl();
+  return url;
 }
 
 function doGet(e) {
