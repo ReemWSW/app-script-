@@ -1,0 +1,54 @@
+<script>
+    function loadData() {
+        $("#loadingSpinner").show();
+        google.script.run.withSuccessHandler(function (data) {
+            $("#loadingSpinner").hide();
+            if (!Array.isArray(data) || data.length === 0) {
+                console.error("Data is not valid.");
+                return;
+            }
+
+            var table = $('#mentorTable').DataTable();
+            table.clear();
+
+            data.forEach(function (row) {
+                let buttonHtml = `<button class="btn btn-primary" onclick="showStudentDetails('${row[0]}');">ดูนักเรียน</button>`;
+                table.row.add([row[0], row[1], buttonHtml]);
+            });
+            table.draw();
+        }).countStudentsPerMentor();
+    }
+
+    function showStudentDetails(mentor) {
+        $("#modalLoadingSpinner").show(); // แสดง Spinner หรือสัญลักษณ์บอกว่ากำลังโหลด
+
+        // เรียกใช้งาน Google Apps Script ผ่าน google.script.run
+        google.script.run.withSuccessHandler(function (data) {
+            $("#modalLoadingSpinner").hide(); // ซ่อน Spinner เมื่อโหลดเสร็จสิ้น
+            console.log(data);
+
+
+            // if (data === null || data.length === 0) {
+            //     console.log("ไม่มีข้อมูลนักเรียนสำหรับครูนิเทศที่ระบุ");
+            //     return;
+            // }
+
+
+            // var table = $('#studentTable').DataTable();
+            // table.clear();
+            // data.forEach(function (row) {
+            //     table.row.add(row);
+            // });
+            // table.draw();
+
+            // $('#studentModal').modal('show'); // แสดง Modal เพื่อแสดงข้อมูลนักเรียน
+        }).getStudentDetailsByMentor(mentor); // เรียกใช้งาน getStudentDetailsByMentor ใน Google Apps Script
+    }
+
+
+    $(document).ready(function () {
+        $('#mentorTable').DataTable();
+        $('#studentTable').DataTable();
+        loadData();
+    });
+</script>
